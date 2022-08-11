@@ -15,17 +15,37 @@ function capitalize(str){
 
 function playRound(playerSelection, computerSelection) {
     let playerChoice = capitalize(playerSelection)
-    if(!choices.includes(playerChoice)){
-        return 'Please type rock, paper or scissors'
-    } else if(playerChoice === computerSelection){
-        return 'Tie!'
+    while(!choices.includes(playerChoice)){
+        playerSelection = prompt('Please type rock, paper or scissors')
+        playerChoice = capitalize(playerSelection)
+    }
+    if(playerChoice === computerSelection){
+        console.log('Tie!')
+        return 0
     } else if ((playerChoice === 'Rock' && computerSelection === 'Scissors')||(playerChoice === 'Paper' && computerSelection === 'Rock')||(playerChoice === 'Scissors' && computerSelection === 'Paper')){
-        return `You win! ${playerChoice} beats ${computerSelection}`
+        console.log(`You win! ${playerChoice} beats ${computerSelection}`)
+        return 1
     } else {
-        return `You lose! ${computerSelection} beats ${playerChoice}`
+        console.log(`You lose! ${computerSelection} beats ${playerChoice}`)
+        return -1
     }
 }
 
-let player = "rock";
-let computerSelection = getComputerChoice();
-console.log(playRound(player, computerSelection));
+function game(){
+    let playerScore = 0
+    let computerScore = 0
+    for(let i = 1; i <= 5; i++){
+        console.log(`Round ${i}`)
+        let player = prompt('Please type in rock paper or scissors')
+        let computer = getComputerChoice()
+        let result = playRound(player, computer)
+        if(result === 1){
+            playerScore++
+        } else if (result === -1){
+            computerScore++
+        }
+    }
+    console.log(`Player v.s. Computer \n${playerScore}:${computerScore}`)
+}
+
+game()
