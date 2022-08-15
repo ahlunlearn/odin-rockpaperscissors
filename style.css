@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1 {
+    margin: 40px auto;
+    font-size: 50px;
+}
+
+p, .round {
+    margin: 20px auto;
+    font-size: 30px;
+}
+
+.result{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 30px;
+}
+
+.player, .computer{
+    margin-bottom: 20px;
+}
+
+.btns{
+    margin-top: 50px;
+}
+
+.btns > button{
+    font-size: 30px;
+    padding: 20px 15px;
+    margin-right: 10px;
+}
+
+.restart{
+    font-size: 30px;
+    padding: 20px 15px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.hidden{
+    visibility: hidden;
+}
